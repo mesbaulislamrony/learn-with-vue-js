@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Event and methods - Learn About Vue Js</title>
+	<style type="text/css">
+	a{
+		text-decoration: none;
+	}
+	</style>
+</head>
+<body>
+
+<div id="root">
+	<ul>
+		<li v-for="skill, key in skills">
+			{{ key + 1 }} - {{ skill }} - <a href="javaScript:;" @click="removeSkill(key)">Remove</a>
+		</li>
+	</ul>
+	<div>
+		<input type="text" name="skill" v-model="n_skill">
+		<button type="button" name="create_skill" @click="createSkill()">Create</button>
+	</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+var vue = new Vue({
+	el: "#root",
+	data: {
+		n_skill: "",
+		skills: ["HTML","CSS","PHP","Python","NodeJs","Wordpress","Laravel"]
+	},
+	methods: {
+		createSkill: function()
+		{
+			this.skills.push(this.n_skill)
+			this.n_skill = ""
+		},
+		removeSkill: function(i)
+		{
+			this.skills.splice(i, 1)
+		}
+	}
+})
+</script>
+</body>
+</html>
