@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Filter - Learn About Vue Js</title>
+	<style type="text/css">
+	a{
+		text-decoration: none;
+	}
+	</style>
+</head>
+<body>
+
+<div id="root">
+	<p>{{ name | uppercase }} [ text convert to uppercase ]</p>
+	<p>{{ professions | lowercase }} [ text contert to lowsercase]</p>
+	<p>{{ today | bdFormat }}</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+var vue = new Vue({
+	el: "#root",
+	data: {
+		name: "Mesbaul Islam",
+		professions: "Software developer",
+		today: new Date()
+	},
+	filters: {
+		uppercase: function(q)
+		{
+			return q.toUpperCase()
+		},
+		lowercase: function(q)
+		{
+			return q.toLowerCase()
+		},
+		bdFormat: function(q)
+		{
+			return q.getUTCDate()+"-"+(q.getUTCMonth() + 1)+"-"+q.getUTCFullYear()
+		}
+	}
+})
+</script>
+</body>
+</html>
