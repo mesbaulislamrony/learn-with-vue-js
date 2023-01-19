@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Attribute and class bindings - Learn About Vue Js</title>
+	<style type="text/css">
+	a{
+		text-decoration: none;
+	}
+	a.active{
+		color: red;
+	}
+	</style>
+</head>
+<body>
+
+<div id="root">
+	<ul>
+		<li>
+			<a :class="{'active' : activeClass == 'a'}" :href="a.url" :title="a.title">{{ a.name }}</a>
+		</li>
+		<li>
+			<a :class="{'active' : activeClass == 'b'}" :href="b.url" :title="b.title">{{ b.name }}</a>
+		</li>
+	</ul>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+var vue = new Vue({
+	el: "#root",
+	data: {
+		a: {
+			name: "Facebook", title: "Go to facebook", url: "https://www.facebook.com"
+		},
+		b: {
+			name: "Youtube", title: "Go to youtube", url: "https://www.youtube.com"
+		},
+		activeClass: "active"
+	}
+})
+</script>
+</body>
+</html>
