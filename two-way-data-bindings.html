@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Two way data bindings - Learn About Vue Js</title>
+</head>
+<body>
+
+<div id="root">
+	<input type="text" name="name" v-model="name">
+	<p>Your name is : {{ name }}</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+var vue = new Vue({
+	el: "#root",
+	data: {
+		name: "Mesbaul Islam"
+	}
+})
+</script>
+</body>
+</html>

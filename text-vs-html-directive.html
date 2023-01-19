@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Text vs html directive - Learn About Vue Js</title>
+	<style type="text/css">
+	a{
+		text-decoration: none;
+	}
+	</style>
+</head>
+<body>
+
+<div id="root">
+	<p v-text="link"></p>
+	<p v-html="link"></p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+var vue = new Vue({
+	el: "#root",
+	data: {
+		link: '<a href="https://www.facebook.com" title="Go to facebook" class="">Facebook</a>'
+	}
+})
+</script>
+</body>
+</html>
