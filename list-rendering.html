@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>List rendering - Learn About Vue Js</title>
+	<style type="text/css">
+	a{
+		text-decoration: none;
+	}
+	</style>
+</head>
+<body>
+
+<div id="root">
+	<ul>
+		<li v-for="skill, key in skills">
+			{{ key + 1 }} - {{ skill.name }} ({{ skill.experience }})
+		</li>
+	</ul>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+var vue = new Vue({
+	el: "#root",
+	data: {
+		skills: [
+			{name: "HTML", experience: 5},
+			{name: "CSS", experience: 3},
+			{name: "PHP", experience: 4},
+			{name: "Python", experience: 2},
+			{name: "NodeJs", experience: 1},
+			{name: "Wordpress", experience: 6},
+			{name: "Laravel", experience: 2}
+		]
+	}
+})
+</script>
+</body>
+</html>
