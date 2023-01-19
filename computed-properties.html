@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Computed Properties - Learn About Vue Js</title>
+	<style type="text/css">
+	a{
+		text-decoration: none;
+	}
+	</style>
+</head>
+<body>
+
+<div id="root">
+	<p>All bills</p>
+	<ul>
+		<li v-for="bill, key in bills">
+			{{ key + 1 }} - {{ bill.name }} ({{ bill.amount }})
+		</li>
+	</ul>
+	<p>Unpaid bills</p>
+	<ul>
+		<li v-for="bill, key in unPaidBills">
+			{{ key + 1 }} - {{ bill.name }} ({{ bill.amount }})
+		</li>
+	</ul>
+	<p>Total : {{ totalBills }} Tk</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+var vue = new Vue({
+	el: "#root",
+	data: {
+		bills: [
+			{name: "House rent", amount: 500, paid: true},
+			{name: "Gas", amount: 300, paid: false},
+			{name: "Water", amount: 400, paid: true},
+			{name: "Internet", amount: 200, paid: false},
+			{name: "Electric", amount: 200, paid: true}
+		]
+	},
+	computed: {
+		unPaidBills: function()
+		{
+			return this.bills.filter(function(q){
+				return q.paid == false
+			})
+		},
+		totalBills: function()
+		{
+			var sum = 0;
+			for (var i = 0; i < this.bills.length; i++) {
+				sum = sum + this.bills[i].amount;
+			}
+			return sum
+		}
+	}
+})
+</script>
+</body>
+</html>
